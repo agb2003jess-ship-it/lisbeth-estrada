@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisbeth Estrada Peña — Candidata a la Alcaldía de San Miguel de Urcuquí</title>
+    <meta name="description" content="Lisbeth Estrada Peña, candidata a la Alcaldía de San Miguel de Urcuquí. Lista 7 - ADN. Plan de trabajo 2027-2031.">
+    <meta name="keywords" content="Lisbeth Estrada, Urcuquí, Alcaldía, ADN, Lista 7, Imbabura, elecciones 2027">
+    <meta name="author" content="Campaña Lisbeth Estrada">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Lisbeth Estrada Peña — Candidata a la Alcaldía de Urcuquí">
+    <meta property="og:description" content="Una mujer preparada para liderar Urcuquí. Plan de trabajo 2027-2031.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- AOS - Animaciones al scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">
+            <span>L</span>
+        </div>
+        <div class="preloader-bar"><span></span></div>
+    </div>
+
+    <!-- BARRA DE PROGRESO DE SCROLL -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav id="navbar">
+        <a href="#inicio" class="logo">Lisbeth <em>Estrada</em></a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+            <li><a href="#quien-soy" class="nav-link">Quién Soy</a></li>
+            <li><a href="#trayectoria" class="nav-link">Trayectoria</a></li>
+            <li><a href="#propuestas" class="nav-link">Propuestas</a></li>
+            <li><a href="#galeria" class="nav-link">Galería</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            <li><a href="https://wa.me/593999999999" class="nav-cta" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Únete
+            </a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="inicio">
+        <!-- Partículas decorativas -->
+        <div class="hero-particles" id="particles"></div>
+        
+        <div class="hero-contenido">
+            <div class="hero-texto">
+                <span class="etiqueta" data-aos="fade-right">
+                    <i class="fas fa-map-marker-alt"></i> San Miguel de Urcuquí · Imbabura
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    Lisbeth <em>Estrada Peña</em>
+                </h1>
+                <p class="cargo" data-aos="fade-up" data-aos-delay="200">
+                    Candidata a la Alcaldía de San Miguel de Urcuquí. Tecnóloga Cosmetóloga, 
+                    emprendedora y mujer de liderazgo, con raíces de trabajo y familia tumbabireña.
+                </p>
+                <span class="lista" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-star"></i> Lista 7 · ADN
+                </span>
+                <p class="frase" data-aos="fade-up" data-aos-delay="400">
+                    "De la tierra aprendió a trabajar. De su profesión aprendió a servir.
+                    Y hoy está preparada para liderar Urcuquí."
+                </p>
+                <div class="hero-botones" data-aos="fade-up" data-aos-delay="500">
+                    <a href="https://wa.me/593999999999?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+                       class="btn btn-primario" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> Escríbeme
+                    </a>
+                    <a href="#propuestas" class="btn btn-secundario">
+                        <i class="fas fa-arrow-down"></i> Ver Propuestas
+                    </a>
+                </div>
+
+                <!-- Contador de cuenta regresiva -->
+                <div class="countdown" data-aos="fade-up" data-aos-delay="600">
+                    <div class="countdown-item">
+                        <span class="numero" id="dias">00</span>
+                        <span class="label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="numero" id="horas">00</span>
+                        <span class="label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="numero" id="minutos">00</span>
+                        <span class="label">Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="numero" id="segundos">00</span>
+                        <span class="label">Seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual" data-aos="zoom-in" data-aos-delay="300">
+                <div class="foto-wrapper">
+                    <img src="https://via.placeholder.com/500x500/6A1B9A/D4AF37?text=Foto+Lisbeth"
+                         alt="Lisbeth Estrada Peña">
+                    <div class="foto-badge"><i class="fas fa-award"></i> Lista 7 · ADN</div>
+                </div>
+                <!-- Elementos flotantes decorativos -->
+                <div class="floating-icon icon-1"><i class="fas fa-leaf"></i></div>
+                <div class="floating-icon icon-2"><i class="fas fa-heart"></i></div>
+                <div class="floating-icon icon-3"><i class="fas fa-users"></i></div>
+            </div>
+        </div>
+
+        <a href="#quien-soy" class="scroll-indicator" aria-label="Scroll">
+            <span></span>
+        </a>
+    </header>
+
+    <!-- BARRA DE ESTADÍSTICAS -->
+    <section class="stats-bar">
+        <div class="stats-contenedor">
+            <div class="stat" data-aos="fade-up">
+                <i class="fas fa-users"></i>
+                <span class="stat-numero" data-count="15000">0</span>
+                <span class="stat-label">Ciudadanos Comprometidos</span>
+            </div>
+            <div class="stat" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span class="stat-numero" data-count="8500">0</span>
+                <span class="stat-label">Familias Beneficiadas</span>
+            </div>
+            <div class="stat" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-project-diagram"></i>
+                <span class="stat-numero" data-count="6">0</span>
+                <span class="stat-label">Ejes Estratégicos</span>
+            </div>
+            <div class="stat" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-calendar-check"></i>
+                <span class="stat-numero" data-count="48">0</span>
+                <span class="stat-label">Meses de Trabajo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉN SOY -->
+    <section class="quien-soy" id="quien-soy">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Mi Historia</span>
+                <h2>¿Quién Soy?</h2>
+                <p>Conoce mi historia, mis raíces y mi compromiso con Urcuquí</p>
+            </div>
+            <div class="quien-grid">
+                <div class="texto" data-aos="fade-right">
+                    <p>
+                        Soy <strong>Lisbeth Estrada</strong>, Tecnóloga Cosmetóloga, emprendedora y mujer de liderazgo.
+                        Mi formación profesional me ha enseñado disciplina, innovación y el valor del servicio a las personas.
+                    </p>
+                    <p>
+                        Pero mi verdadera escuela ha sido <strong>el campo, la familia y el trabajo</strong>. Soy nieta de
+                        Don Luis Estrada, agricultor y cañicultor, e hija de Eduardo Estrada y Amparo Peña,
+                        tumbabireños que conocen el esfuerzo de labrar la tierra.
+                    </p>
+                    <p>
+                        De mis raíces heredé la perseverancia; de mi profesión, la preparación; y de mi familia,
+                        la convicción de que el trabajo honrado es el camino para construir un mejor futuro
+                        para San Miguel de Urcuquí.
+                    </p>
+                    <div class="datos">
+                        <div class="dato">
+                            <div class="icono"><i class="fas fa-briefcase"></i></div>
+                            <strong>Profesión</strong>
+                            <span>Tecnóloga Cosmetóloga</span>
+                        </div>
+                        <div class="dato">
+                            <div class="icono"><i class="fas fa-flag"></i></div>
+                            <strong>Partido</strong>
+                            <span>ADN · Lista 7</span>
+                        </div>
+                        <div class="dato">
+                            <div class="icono"><i class="fas fa-city"></i></div>
+                            <strong>Cargo</strong>
+                            <span>Candidata a Alcaldesa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="frase-destacada" data-aos="fade-left">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Una mujer profesional que conoce el valor del trabajo, que entiende el esfuerzo de emprender, y que lleva en sus raíces la identidad de nuestra tierra.</p>
+                    <p class="ultima">Hoy estoy preparada para liderar Urcuquí.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAYECTORIA - TIMELINE -->
+    <section class="trayectoria" id="trayectoria">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Mi Camino</span>
+                <h2>Trayectoria</h2>
+                <p>Una vida construida sobre esfuerzo, preparación y servicio</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Raíces</span>
+                        <h3>Nacida en el campo</h3>
+                        <p>Nieta de Don Luis Estrada, agricultor y cañicultor. Crecí entre el trabajo de la tierra y los valores de la familia tumbabireña.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Formación</span>
+                        <h3>Tecnóloga Cosmetóloga</h3>
+                        <p>Me formé profesionalmente para servir a las personas, aprendiendo disciplina, innovación y el valor de la atención al cliente.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Emprendimiento</span>
+                        <h3>Mujer Emprendedora</h3>
+                        <p>Construí mi propio negocio desde cero, enfrentando los desafíos del emprendimiento y generando empleo para nuestra comunidad.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Liderazgo</span>
+                        <h3>Compromiso Social</h3>
+                        <p>He trabajado junto a organizaciones sociales y comunitarias, escuchando las necesidades reales de nuestros barrios y parroquias.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2027 - 2031</span>
+                        <h3>Candidata a Alcaldesa</h3>
+                        <p>Hoy asumo el compromiso más grande de mi vida: liderar San Miguel de Urcuquí hacia un futuro de progreso, equidad y desarrollo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPUESTAS -->
+    <section class="propuestas" id="propuestas">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Plan de Trabajo 2027 – 2031</span>
+                <h2>Seis ejes para transformar Urcuquí</h2>
+                <p>Compromisos concretos y medibles para nuestro cantón</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros" data-aos="fade-up" data-aos-delay="100">
+                <button class="filtro active" data-filter="all">Todas</button>
+                <button class="filtro" data-filter="economia">Economía</button>
+                <button class="filtro" data-filter="seguridad">Seguridad</button>
+                <button class="filtro" data-filter="territorio">Territorio</button>
+                <button class="filtro" data-filter="gobierno">Gobierno</button>
+                <button class="filtro" data-filter="ambiente">Ambiente</button>
+                <button class="filtro" data-filter="educacion">Educación</button>
+            </div>
+
+            <div class="grid-propuestas">
+                <article class="propuesta" data-category="economia" data-aos="fade-up">
+                    <span class="numero">01</span>
+                    <div class="icono"><i class="fas fa-briefcase"></i></div>
+                    <h3>Desarrollo Económico Productivo</h3>
+                    <p>Impulsar la producción agropecuaria, el emprendimiento y el turismo sostenible.</p>
+                    <ul>
+                        <li>Programa "Urcuquí Produce" para 800 emprendedores</li>
+                        <li>48 ferias comerciales durante el período</li>
+                        <li>Centro Municipal de Emprendimiento e Innovación</li>
+                        <li>Fortalecimiento de 6 rutas turísticas</li>
+                        <li>Apoyo a 500 productores agropecuarios</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $1.2M</span>
+                    </div>
+                </article>
+
+                <article class="propuesta" data-category="seguridad" data-aos="fade-up" data-aos-delay="100">
+                    <span class="numero">02</span>
+                    <div class="icono"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguridad y Convivencia Ciudadana</h3>
+                    <p>Un cantón seguro e inclusivo con prevención y espacios recuperados.</p>
+                    <ul>
+                        <li>120 cámaras de videovigilancia instaladas</li>
+                        <li>Recuperación de 25 espacios públicos seguros</li>
+                        <li>100% de iluminación en zonas priorizadas</li>
+                        <li>Programa "Urcuquí Convive en Paz"</li>
+                        <li>1,000 ciudadanos capacitados en cultura de paz</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $850K</span>
+                    </div>
+                </article>
+
+                <article class="propuesta" data-category="territorio" data-aos="fade-up" data-aos-delay="200">
+                    <span class="numero">03</span>
+                    <div class="icono"><i class="fas fa-road"></i></div>
+                    <h3>Territorio y Hábitat</h3>
+                    <p>Mejorar la infraestructura, vialidad y servicios para todos.</p>
+                    <ul>
+                        <li>150 km de vías rurales intervenidas</li>
+                        <li>50 obras de drenaje y alcantarillado</li>
+                        <li>Mejora de 15 puentes y pasos de agua</li>
+                        <li>100% del catastro urbano actualizado</li>
+                        <li>30 obras de infraestructura comunitaria</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $2.5M</span>
+                    </div>
+                </article>
+
+                <article class="propuesta" data-category="gobierno" data-aos="fade-up" data-aos-delay="300">
+                    <span class="numero">04</span>
+                    <div class="icono"><i class="fas fa-users"></i></div>
+                    <h3>Gobernanza y Servicio Ciudadano</h3>
+                    <p>Transparencia, participación y gobierno abierto.</p>
+                    <ul>
+                        <li>16 cabildos abiertos (4 por año)</li>
+                        <li>Plataforma digital para trámites y seguimiento</li>
+                        <li>Escuela Municipal de Liderazgo Ciudadano</li>
+                        <li>2,500 ciudadanos capacitados</li>
+                        <li>Presupuestos participativos con las comunidades</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $400K</span>
+                    </div>
+                </article>
+
+                <article class="propuesta" data-category="ambiente" data-aos="fade-up" data-aos-delay="400">
+                    <span class="numero">05</span>
+                    <div class="icono"><i class="fas fa-leaf"></i></div>
+                    <h3>Vida Sana y Ambiente</h3>
+                    <p>Proteger nuestros recursos naturales y promover la salud.</p>
+                    <ul>
+                        <li>Reforestación de 100 hectáreas con especies nativas</li>
+                        <li>Protección de 20 fuentes de agua</li>
+                        <li>Siembra de 20,000 árboles</li>
+                        <li>Programa "Urcuquí Saludable" para 10,000 personas</li>
+                        <li>150 huertos familiares y comunitarios</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $600K</span>
+                    </div>
+                </article>
+
+                <article class="propuesta" data-category="educacion" data-aos="fade-up" data-aos-delay="500">
+                    <span class="numero">06</span>
+                    <div class="icono"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Educación y Cultura</h3>
+                    <p>Fortalecer el patrimonio cultural y las oportunidades educativas.</p>
+                    <ul>
+                        <li>200 becas e incentivos educativos</li>
+                        <li>60 eventos culturales durante la administración</li>
+                        <li>5,000 personas beneficiadas con programas culturales</li>
+                        <li>Recuperación de 10 espacios patrimoniales</li>
+                        <li>Talleres permanentes de arte y tradición</li>
+                    </ul>
+                    <div class="propuesta-meta">
+                        <span><i class="fas fa-coins"></i> Inversión: $750K</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="galeria" id="galeria">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Momentos</span>
+                <h2>Galería</h2>
+                <p>Recorriendo nuestro cantón, junto a nuestra gente</p>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item" data-aos="zoom-in">
+                    <img src="https://via.placeholder.com/600x400/6A1B9A/D4AF37?text=Momento+1" alt="Galería 1">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/600x400/4A148C/D4AF37?text=Momento+2" alt="Galería 2">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/600x400/2E0A3E/D4AF37?text=Momento+3" alt="Galería 3">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/600x400/6A1B9A/D4AF37?text=Momento+4" alt="Galería 4">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/600x400/4A148C/D4AF37?text=Momento+5" alt="Galería 5">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://via.placeholder.com/600x400/2E0A3E/D4AF37?text=Momento+6" alt="Galería 6">
+                    <div class="galeria-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonios">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Voces del Pueblo</span>
+                <h2>Testimonios</h2>
+                <p>Lo que dice nuestra gente</p>
+            </div>
+            <div class="testimonios-slider" id="testimoniosSlider">
+                <div class="testimonio active">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Lisbeth conoce nuestras necesidades porque ha trabajado junto a nosotros. Es una mujer de palabra y compromiso."</p>
+                    <div class="testimonio-autor">
+                        <strong>María Rodríguez</strong>
+                        <span>Presidenta del Barrio Central</span>
+                    </div>
+                </div>
+                <div class="testimonio">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"He visto su trabajo en la comunidad. No promete, hace. Por eso confío en ella para liderar Urcuquí."</p>
+                    <div class="testimonio-autor">
+                        <strong>Juan Carlos Pérez</strong>
+                        <span>Productor Agrícola</span>
+                    </div>
+                </div>
+                <div class="testimonio">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Como emprendedora entiende lo difícil que es salir adelante. Necesitamos alguien así en la Alcaldía."</p>
+                    <div class="testimonio-autor">
+                        <strong>Ana Lucía Torres</strong>
+                        <span>Comerciante</span>
+                    </div>
+                </div>
+                <div class="testimonios-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN -->
+    <section class="cta-section">
+        <div class="contenedor">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>El cambio comienza contigo</h2>
+                <p>Súmate a esta causa. Juntos construiremos el Urcuquí que merecemos.</p>
+                <div class="cta-botones">
+                    <a href="https://wa.me/593999999999" class="btn btn-primario" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> Únete por WhatsApp
+                    </a>
+                    <a href="#contacto" class="btn btn-outline">
+                        <i class="fas fa-handshake"></i> Ser Voluntario
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Hablemos</span>
+                <h2>Contáctame</h2>
+                <p>Tu voz importa. Juntos construiremos el Urcuquí que merecemos.</p>
+            </div>
+            
+            <div class="contacto-grid">
+                <!-- Info de contacto -->
+                <div class="contacto-info-col" data-aos="fade-right">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <a href="tel:+593999999999">+593 99 999 9999</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:contacto@lisbethestrada.ec">contacto@lisbethestrada.ec</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <span>San Miguel de Urcuquí, Imbabura</span>
+                        </div>
+                    </div>
+                    
+                    <div class="redes">
+                        <a href="https://instagram.com/tu_cuenta" class="red" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/tu_pagina" class="red" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://tiktok.com/@tu_cuenta" class="red" target="_blank" rel="noopener" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://youtube.com/@tu_canal" class="red" target="_blank" rel="noopener" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <form class="contacto-form" id="contactoForm" data-aos="fade-left" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                        <label for="nombre">Nombre completo</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Correo electrónico</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefono" name="telefono" placeholder=" ">
+                        <label for="telefono">Teléfono (opcional)</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="interes" name="interes" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="voluntario">Quiero ser voluntario</option>
+                            <option value="informacion">Quiero más información</option>
+                            <option value="apoyo">Quiero apoyar la campaña</option>
+                            <option value="propuesta">Tengo una propuesta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder=" " required></textarea>
+                        <label for="mensaje">Tu mensaje</label>
+                    </div>
+                    <button type="submit" class="btn btn-primario btn-full">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contenedor">
+            <div class="footer-col">
+                <a href="#inicio" class="logo-footer">Lisbeth <em>Estrada</em></a>
+                <p>Candidata a la Alcaldía de San Miguel de Urcuquí. Por un cantón con progreso, equidad y futuro.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#quien-soy">Quién Soy</a></li>
+                    <li><a href="#trayectoria">Trayectoria</a></li>
+                    <li><a href="#propuestas">Propuestas</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +593 99 999 9999</li>
+                    <li><i class="fas fa-envelope"></i> contacto@lisbethestrada.ec</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Urcuquí, Imbabura</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Sígueme</h4>
+                <div class="footer-redes">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <strong>Campaña de Lisbeth Estrada Peña</strong> — Candidata a la Alcaldía de San Miguel de Urcuquí</p>
+            <p>Movimiento Acción Democrática Nacional (ADN) · Lista 7</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/593999999999?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+       class="flotante-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="flotante-tooltip">¿Hablamos?</span>
+    </a>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- LIGHTBOX para galería -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Vista ampliada" id="lightboxImg">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
