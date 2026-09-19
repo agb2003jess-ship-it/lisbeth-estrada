@@ -25,517 +25,500 @@
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <style>
-        /* === ESTILOS BASE (De tu código original) === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        section { padding: 5rem 2rem; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2.5rem; color: #6A1B9A; margin-bottom: 1rem; text-align: center; }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem; }
-        
-        /* === NAVEGACIÓN === */
-        nav { background: linear-gradient(135deg, #6A1B9A 0%, #4A148C 100%); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 1rem; color: white; text-decoration: none; font-weight: bold; font-size: 1.3rem; }
-        .logo img { height: 45px; width: auto; }
-        .logo-name { height: 35px; width: auto; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.8; }
-        .btn-uneete { background: #D4AF37; color: #2E0A3E !important; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: bold; }
-
-        /* === HERO === */
-        #inicio { margin-top: 70px; background: linear-gradient(135deg, #2E0A3E 0%, #6A1B9A 100%); color: white; padding: 4rem 2rem; min-height: 90vh; display: flex; align-items: center; }
-        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; color: #D4AF37; }
-        .hero-content .subtitle { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95; }
-        .hero-content .party { background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; margin-bottom: 2rem; border-left: 4px solid #D4AF37; }
-        .hero-content .quote { font-style: italic; font-size: 1.2rem; margin-bottom: 2rem; padding: 1.5rem; border-left: 4px solid #D4AF37; background: rgba(212, 175, 55, 0.1); border-radius: 0 10px 10px 0; }
-        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: transform 0.3s, box-shadow 0.3s; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
-        .btn-primary { background: #25D366; color: white; }
-        .btn-secondary { background: #D4AF37; color: #2E0A3E; }
-        .hero-image { text-align: center; }
-        .hero-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); border: 5px solid #D4AF37; }
-        .party-info { margin-top: 1rem; font-size: 1.2rem; font-weight: bold; color: #D4AF37; }
-
-        /* === COUNTDOWN & STATS === */
-        .countdown { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
-        .countdown h3 { margin-bottom: 1rem; color: #D4AF37; }
-        .countdown-timer { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-        .countdown-item { background: rgba(212, 175, 55, 0.2); padding: 1rem; border-radius: 10px; min-width: 80px; }
-        .countdown-item .number { font-size: 2.5rem; font-weight: bold; display: block; }
-        .countdown-item .label { font-size: 0.9rem; opacity: 0.9; }
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
-        .stat-item { text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px; }
-        .stat-item .number { font-size: 2.5rem; font-weight: bold; color: #D4AF37; display: block; }
-        .stat-item .label { font-size: 0.9rem; margin-top: 0.5rem; }
-
-        /* === QUIÉN SOY === */
-        #quien-soy { background: #f9f9f9; }
-        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
-        .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .about-text p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.1rem; }
-        .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
-        .about-stat { background: white; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
-        .about-stat h4 { color: #6A1B9A; margin-bottom: 0.5rem; }
-        .about-stat img { max-width: 120px; height: auto; margin: 0 auto; }
-
-        /* === TRAYECTORIA === */
-        .timeline { max-width: 800px; margin: 0 auto; }
-        .timeline-item { padding: 2rem; background: white; margin-bottom: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #6A1B9A; }
-        .timeline-item h3 { color: #6A1B9A; margin-bottom: 0.5rem; }
-        .timeline-item .year { color: #D4AF37; font-weight: bold; margin-bottom: 1rem; display: block; }
-
-        /* === PROPUESTAS === */
-        #propuestas { background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%); }
-        .proposals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .proposal-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .proposal-card:hover { transform: translateY(-5px); }
-        .proposal-card h3 { color: #6A1B9A; margin-bottom: 1rem; font-size: 1.5rem; }
-        .proposal-card .number { background: #6A1B9A; color: white; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-weight: bold; }
-        .proposal-card ul { list-style: none; margin: 1rem 0; }
-        .proposal-card li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
-        .proposal-card li:before { content: "✓"; color: #D4AF37; position: absolute; left: 0; font-weight: bold; }
-
-        /* === NUEVA SECCIÓN: EQUIPO (CONCEJALES) === */
-        #equipo { background: #ffffff; }
-        .team-filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .filter-btn { background: #f9f9f9; border: 2px solid #ddd; padding: 0.6rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; color: #6A1B9A; transition: all 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: #6A1B9A; color: white; border-color: #6A1B9A; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
-        .team-card { background: #f9f9f9; padding: 1.5rem; border-radius: 15px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .team-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .team-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; border: 3px solid #D4AF37; }
-        .team-card h4 { color: #6A1B9A; margin-bottom: 0.3rem; font-size: 1rem; }
-        .team-card .role { color: #D4AF37; font-weight: bold; font-size: 0.85rem; margin-bottom: 0.3rem; }
-        .team-card .parish { color: #666; font-size: 0.85rem; }
-        .team-card.hidden { display: none; }
-
-        /* === GALERÍA === */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .gallery-item { overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); height: 300px; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-
-        /* === TESTIMONIOS === */
-        #testimonios { background: linear-gradient(135deg, #6A1B9A 0%, #4A148C 100%); color: white; }
-        #testimonios h2 { color: #D4AF37; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .testimonial-card { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); }
-        .testimonial-card p { font-style: italic; margin-bottom: 1rem; font-size: 1.1rem; }
-        .testimonial-card .author { color: #D4AF37; font-weight: bold; }
-        .testimonial-card .role { opacity: 0.8; font-size: 0.9rem; }
-
-        /* === CONTACTO === */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .contact-info h3 { color: #6A1B9A; margin-bottom: 1.5rem; }
-        .contact-item { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-        .contact-item strong { color: #6A1B9A; display: block; margin-bottom: 0.3rem; }
-        .contact-item a { color: #4A148C; text-decoration: none; }
-        .contact-form { background: #f9f9f9; padding: 2rem; border-radius: 15px; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: #6A1B9A; font-weight: 500; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #6A1B9A; }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .btn-submit { background: linear-gradient(135deg, #6A1B9A, #4A148C); color: white; padding: 1rem 2rem; border: none; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; transition: transform 0.3s; }
-        .btn-submit:hover { transform: translateY(-2px); }
-        .form-message { text-align: center; margin-top: 1rem; font-weight: bold; padding: 10px; border-radius: 8px; display: none; }
-        .form-message.success { background: #d4edda; color: #155724; display: block; }
-        .form-message.error { background: #f8d7da; color: #721c24; display: block; }
-
-        /* === FOOTER & FLOTANTE === */
-        footer { background: #2E0A3E; color: white; padding: 3rem 2rem 1rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-        .footer-section h3 { color: #D4AF37; margin-bottom: 1rem; }
-        .footer-section a { color: white; text-decoration: none; display: block; margin-bottom: 0.5rem; opacity: 0.9; }
-        .footer-section a:hover { opacity: 1; color: #D4AF37; }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
-        .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
-        .floating-whatsapp:hover { transform: scale(1.1); }
-
-        /* === RESPONSIVE === */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Puedes agregar un menú hamburguesa si lo deseas */
-            .hero-container, .about-content, .contact-grid, .footer-content, .stats { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2rem; }
-        }
-    </style>
+    <!-- AOS Animaciones -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">L</div>
+        <div class="preloader-bar"><span></span></div>
+    </div>
+
+    <!-- Barra de progreso scroll -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navegación -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
             <a href="#inicio" class="logo">
-                <img src="assets/logo-adn.png" alt="ADN Logo">
-                <img src="assets/logoname.jpg" alt="Lisbeth Estrada" class="logo-name">
+                <img src="assets/logo-adn.png" alt="ADN Logo" style="height: 45px;">
+                <span style="color: white; font-weight: bold; font-size: 1.2rem;">Lisbeth <em style="color: var(--dorado); font-style: italic;">Estrada</em></span>
             </a>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#quien-soy">Quién Soy</a>
-                <a href="#trayectoria">Trayectoria</a>
-                <a href="#propuestas">Propuestas</a>
-                <a href="#equipo">Equipo</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-                <a href="https://wa.me/593995247122" class="btn-uneete">Únete</a>
-            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#quien-soy" class="nav-link">Quién Soy</a></li>
+                <li><a href="#trayectoria" class="nav-link">Trayectoria</a></li>
+                <li><a href="#propuestas" class="nav-link">Propuestas</a></li>
+                <li><a href="#equipo" class="nav-link">Equipo</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="https://wa.me/593995247122" class="nav-cta"><i class="fa-brands fa-whatsapp"></i> Únete</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Lisbeth Estrada</h1>
-                <p class="subtitle">Candidata a la Alcaldía de San Miguel de Urcuquí. Tecnóloga Cosmetóloga, emprendedora y mujer de liderazgo, con raíces de trabajo y familia Tumbabireña.</p>
-                <div class="party"><strong>Lista 7 · ADN</strong></div>
-                <div class="quote">"De la tierra aprendió a trabajar. De su profesión aprendió a servir. Y hoy está preparada para liderar Urcuquí."</div>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/593995247122?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n" class="btn btn-primary">Escríbeme</a>
-                    <a href="#propuestas" class="btn btn-secondary">Ver Propuestas</a>
+    <header class="hero" id="inicio">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-contenido">
+            <div class="hero-texto" data-aos="fade-right">
+                <span class="etiqueta">Candidata a la Alcaldía</span>
+                <h1>Lisbeth <em>Estrada</em></h1>
+                <p class="cargo">Candidata a la Alcaldía de San Miguel de Urcuquí. Tecnóloga Cosmetóloga, emprendedora y mujer de liderazgo, con raíces de trabajo y familia Tumbabireña.</p>
+                <div class="lista">Lista 7 · ADN</div>
+                <p class="frase">"De la tierra aprendió a trabajar. De su profesión aprendió a servir. Y hoy está preparada para liderar Urcuquí."</p>
+                <div class="hero-botones">
+                    <a href="https://wa.me/593995247122?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n" class="btn btn-primario"><i class="fa-brands fa-whatsapp"></i> Escríbeme</a>
+                    <a href="#propuestas" class="btn btn-secundario">Ver Propuestas</a>
                 </div>
+                <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:12px;">Faltan para las elecciones:</p>
                 <div class="countdown">
-                    <h3>Faltan para las elecciones:</h3>
-                    <div class="countdown-timer">
-                        <div class="countdown-item"><span class="number" id="days">00</span><span class="label">Días</span></div>
-                        <div class="countdown-item"><span class="number" id="hours">00</span><span class="label">Horas</span></div>
-                        <div class="countdown-item"><span class="number" id="minutes">00</span><span class="label">Min</span></div>
-                        <div class="countdown-item"><span class="number" id="seconds">00</span><span class="label">Seg</span></div>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="stat-item"><span class="number">0</span><div class="label">Ciudadanos Comprometidos</div></div>
-                    <div class="stat-item"><span class="number">0</span><div class="label">Familias Beneficiadas</div></div>
-                    <div class="stat-item"><span class="number">6</span><div class="label">Ejes Estratégicos</div></div>
-                    <div class="stat-item"><span class="number">48</span><div class="label">Meses de Trabajo</div></div>
+                    <div class="countdown-item"><span class="numero" id="days">00</span><span class="label">Días</span></div>
+                    <div class="countdown-item"><span class="numero" id="hours">00</span><span class="label">Horas</span></div>
+                    <div class="countdown-item"><span class="numero" id="minutes">00</span><span class="label">Min</span></div>
+                    <div class="countdown-item"><span class="numero" id="seconds">00</span><span class="label">Seg</span></div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/lisbeth-hero.jpg" alt="Lisbeth Estrada">
-                <div class="party-info">Lista 7 · ADN</div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="foto-wrapper">
+                    <img src="assets/lisbeth-hero.jpg" alt="Lisbeth Estrada">
+                    <div class="foto-badge"><i class="fa-solid fa-award"></i> Lista 7 · ADN</div>
+                </div>
             </div>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </header>
+
+    <!-- Barra de Estadísticas -->
+    <section class="stats-bar">
+        <div class="stats-contenedor">
+            <div class="stat"><i class="fa-solid fa-users"></i><span class="stat-numero" data-count="0">0</span><span class="stat-label">Ciudadanos Comprometidos</span></div>
+            <div class="stat"><i class="fa-solid fa-house-chimney"></i><span class="stat-numero" data-count="0">0</span><span class="stat-label">Familias Beneficiadas</span></div>
+            <div class="stat"><i class="fa-solid fa-bullseye"></i><span class="stat-numero" data-count="6">0</span><span class="stat-label">Ejes Estratégicos</span></div>
+            <div class="stat"><i class="fa-solid fa-calendar-days"></i><span class="stat-numero" data-count="48">0</span><span class="stat-label">Meses de Trabajo</span></div>
         </div>
     </section>
 
     <!-- Quién Soy -->
-    <section id="quien-soy">
-        <div class="container">
-            <h2>Mi Historia</h2>
-            <p class="section-subtitle">¿Quién Soy?<br>Conoce mi historia, mis raíces y mi compromiso con Urcuquí</p>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/perfil-c.jpg" alt="Lisbeth Estrada - Perfil">
-                </div>
-                <div class="about-text">
-                    <p>Soy Lisbeth Estrada, Tecnóloga Cosmetóloga, emprendedora y mujer de liderazgo. Mi formación profesional me ha enseñado disciplina, innovación y el valor del servicio a las personas.</p>
+    <section class="quien-soy" id="quien-soy">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Mi Historia</span>
+                <h2>¿Quién Soy?</h2>
+                <p>Conoce mi historia, mis raíces y mi compromiso con Urcuquí</p>
+            </div>
+            <div class="quien-grid">
+                <div class="texto" data-aos="fade-right">
+                    <p>Soy <strong>Lisbeth Estrada</strong>, Tecnóloga Cosmetóloga, emprendedora y mujer de liderazgo. Mi formación profesional me ha enseñado disciplina, innovación y el valor del servicio a las personas.</p>
                     <p>Pero mi verdadera escuela ha sido el campo, la familia y el trabajo. Soy nieta de Don Luis Estrada, agricultor y cañicultor, e hija de Eduardo Estrada y Amparo Peña, tumbabireños que conocen el esfuerzo de labrar la tierra.</p>
                     <p>De mis raíces heredé la perseverancia; de mi profesión, la preparación; y de mi familia, la convicción de que el trabajo honrado es el camino para construir un mejor futuro para San Miguel de Urcuquí.</p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <h4>Partido</h4>
-                            <!-- CORRECCIÓN 1: LOGO EN LUGAR DE TEXTO -->
-                            <img src="assets/logo-adn.png" alt="Logo ADN Lista 7">
+                    <div class="datos">
+                        <div class="dato">
+                            <div class="icono"><i class="fa-solid fa-landmark"></i></div>
+                            <strong>Partido</strong>
+                            <!-- CORRECCIÓN: LOGO DEL PARTIDO EN LUGAR DE TEXTO -->
+                            <img src="assets/logo-adn.png" alt="Logo ADN Lista 7" style="max-width: 100px; margin-top: 8px;">
                         </div>
-                        <div class="about-stat">
-                            <h4>Cargo</h4>
-                            <p>Candidata a Alcaldesa</p>
+                        <div class="dato">
+                            <div class="icono"><i class="fa-solid fa-briefcase"></i></div>
+                            <strong>Cargo</strong>
+                            <span>Candidata a Alcaldesa</span>
                         </div>
                     </div>
+                </div>
+                <div class="frase-destacada" data-aos="fade-left">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p>Una mujer que conoce el valor del trabajo, el esfuerzo de la tierra y la fuerza de la familia.</p>
+                    <p class="ultima">Lista 7 · ADN</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Trayectoria -->
-    <section id="trayectoria">
-        <div class="container">
-            <h2>Mi Camino</h2>
-            <p class="section-subtitle">Trayectoria<br>Una vida construida sobre esfuerzo, preparación y servicio</p>
+    <section class="trayectoria" id="trayectoria">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Mi Camino</span>
+                <h2>Trayectoria</h2>
+                <p>Una vida construida sobre esfuerzo, preparación y servicio</p>
+            </div>
             <div class="timeline">
-                <div class="timeline-item"><h3>Raíces</h3><span class="year">Nacida en el campo</span><p>Nieta de Don Luis Estrada, agricultor y cañicultor. Crecí entre el trabajo de la tierra y los valores de la familia Tumbabireña.</p></div>
-                <div class="timeline-item"><h3>Formación</h3><span class="year">Tecnóloga Cosmetóloga</span><p>Me formé profesionalmente para servir a las personas, aprendiendo disciplina, innovación y el valor de la atención al cliente.</p></div>
-                <div class="timeline-item"><h3>Emprendimiento</h3><span class="year">Mujer Emprendedora</span><p>Construí mi propio negocio desde cero, enfrentando los desafíos del emprendimiento y generando empleo para nuestra comunidad.</p></div>
-                <div class="timeline-item"><h3>Liderazgo</h3><span class="year">Compromiso Social</span><p>He trabajado junto a organizaciones sociales y comunitarias, escuchando las necesidades reales de nuestros barrios y parroquias.</p></div>
-                <div class="timeline-item"><h3>2027 - 2031</h3><span class="year">Candidata a Alcaldesa</span><p>Hoy asumo el compromiso más grande de mi vida: ser candidata para liderar San Miguel de Urcuquí hacia un futuro de progreso, equidad y desarrollo.</p></div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Raíces</span>
+                        <h3>Nacida en el campo</h3>
+                        <p>Nieta de Don Luis Estrada, agricultor y cañicultor. Crecí entre el trabajo de la tierra y los valores de la familia Tumbabireña.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Formación</span>
+                        <h3>Tecnóloga Cosmetóloga</h3>
+                        <p>Me formé profesionalmente para servir a las personas, aprendiendo disciplina, innovación y el valor de la atención al cliente.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Emprendimiento</span>
+                        <h3>Mujer Emprendedora</h3>
+                        <p>Construí mi propio negocio desde cero, enfrentando los desafíos del emprendimiento y generando empleo para nuestra comunidad.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">Liderazgo</span>
+                        <h3>Compromiso Social</h3>
+                        <p>He trabajado junto a organizaciones sociales y comunitarias, escuchando las necesidades reales de nuestros barrios y parroquias.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2027 - 2031</span>
+                        <h3>Candidata a Alcaldesa</h3>
+                        <p>Hoy asumo el compromiso más grande de mi vida: ser candidata para liderar San Miguel de Urcuquí hacia un futuro de progreso, equidad y desarrollo.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Propuestas -->
-    <section id="propuestas">
-        <div class="container">
-            <h2>Plan de Trabajo 2027 – 2031</h2>
-            <p class="section-subtitle">Seis ejes para transformar Urcuquí<br>Compromisos concretos y medibles para nuestro cantón</p>
-            <div class="proposals-grid">
-                <div class="proposal-card">
-                    <div class="number">01</div><h3>Desarrollo Económico Productivo</h3><p>Impulsar la producción agropecuaria, el emprendimiento y el turismo sostenible.</p>
-                    <ul><li>Programa "Urcuquí Produce" para emprendedores</li><li>Ferias comerciales durante el período</li><li>Centro Municipal de Emprendimiento e Innovación</li><li>Fortalecimiento de rutas turísticas</li><li>Apoyo a productores agropecuarios</li></ul>
+    <!-- Propuestas (SIN LÍNEAS DE INVERSIÓN) -->
+    <section class="propuestas" id="propuestas">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Plan de Trabajo 2027 – 2031</span>
+                <h2>Seis ejes para transformar Urcuquí</h2>
+                <p>Compromisos concretos y medibles para nuestro cantón</p>
+            </div>
+            <div class="filtros" data-aos="fade-up">
+                <button class="filtro active" data-filter="all">Todos</button>
+                <button class="filtro" data-filter="economia">Economía</button>
+                <button class="filtro" data-filter="seguridad">Seguridad</button>
+                <button class="filtro" data-filter="territorio">Territorio</button>
+                <button class="filtro" data-filter="gobernanza">Gobernanza</button>
+                <button class="filtro" data-filter="ambiente">Ambiente</button>
+                <button class="filtro" data-filter="cultura">Cultura</button>
+            </div>
+            <div class="grid-propuestas">
+                <div class="propuesta" data-category="economia" data-aos="fade-up">
+                    <span class="numero">01</span>
+                    <div class="icono"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Desarrollo Económico Productivo</h3>
+                    <p>Impulsar la producción agropecuaria, el emprendimiento y el turismo sostenible.</p>
+                    <ul>
+                        <li>Programa "Urcuquí Produce" para emprendedores</li>
+                        <li>Ferias comerciales durante el período</li>
+                        <li>Centro Municipal de Emprendimiento e Innovación</li>
+                        <li>Fortalecimiento de rutas turísticas</li>
+                        <li>Apoyo a productores agropecuarios</li>
+                    </ul>
                 </div>
-                <div class="proposal-card">
-                    <div class="number">02</div><h3>Seguridad y Convivencia Ciudadana</h3><p>Un cantón seguro e inclusivo con prevención y espacios recuperados.</p>
-                    <ul><li>Cámaras de videovigilancia instaladas</li><li>Recuperación de espacios públicos seguros</li><li>Iluminación en zonas priorizadas</li><li>Programa "Urcuquí Convive en Paz"</li><li>Ciudadanos capacitados en cultura de paz</li></ul>
+                <div class="propuesta" data-category="seguridad" data-aos="fade-up" data-aos-delay="100">
+                    <span class="numero">02</span>
+                    <div class="icono"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Seguridad y Convivencia Ciudadana</h3>
+                    <p>Un cantón seguro e inclusivo con prevención y espacios recuperados.</p>
+                    <ul>
+                        <li>Cámaras de videovigilancia instaladas</li>
+                        <li>Recuperación de espacios públicos seguros</li>
+                        <li>Iluminación en zonas priorizadas</li>
+                        <li>Programa "Urcuquí Convive en Paz"</li>
+                        <li>Ciudadanos capacitados en cultura de paz</li>
+                    </ul>
                 </div>
-                <div class="proposal-card">
-                    <div class="number">03</div><h3>Territorio y Hábitat</h3><p>Mejorar la infraestructura, vialidad y servicios para todos.</p>
-                    <ul><li>Vías rurales intervenidas</li><li>Obras de drenaje y alcantarillado</li><li>Mejora de puentes y pasos de agua</li><li>Catastro urbano actualizado</li><li>Obras de infraestructura comunitaria</li></ul>
+                <div class="propuesta" data-category="territorio" data-aos="fade-up" data-aos-delay="200">
+                    <span class="numero">03</span>
+                    <div class="icono"><i class="fa-solid fa-road"></i></div>
+                    <h3>Territorio y Hábitat</h3>
+                    <p>Mejorar la infraestructura, vialidad y servicios para todos.</p>
+                    <ul>
+                        <li>Vías rurales intervenidas</li>
+                        <li>Obras de drenaje y alcantarillado</li>
+                        <li>Mejora de puentes y pasos de agua</li>
+                        <li>Catastro urbano actualizado</li>
+                        <li>Obras de infraestructura comunitaria</li>
+                    </ul>
                 </div>
-                <div class="proposal-card">
-                    <div class="number">04</div><h3>Gobernanza y Servicio Ciudadano</h3><p>Transparencia, participación y gobierno abierto.</p>
-                    <ul><li>Cabildos abiertos</li><li>Plataforma digital para trámites y seguimiento</li><li>Escuela Municipal de Liderazgo Ciudadano</li><li>Ciudadanos capacitados</li><li>Presupuestos participativos con las comunidades</li></ul>
+                <div class="propuesta" data-category="gobernanza" data-aos="fade-up">
+                    <span class="numero">04</span>
+                    <div class="icono"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>Gobernanza y Servicio Ciudadano</h3>
+                    <p>Transparencia, participación y gobierno abierto.</p>
+                    <ul>
+                        <li>Cabildos abiertos</li>
+                        <li>Plataforma digital para trámites y seguimiento</li>
+                        <li>Escuela Municipal de Liderazgo Ciudadano</li>
+                        <li>Ciudadanos capacitados</li>
+                        <li>Presupuestos participativos con las comunidades</li>
+                    </ul>
                 </div>
-                <div class="proposal-card">
-                    <div class="number">05</div><h3>Vida Sana y Ambiente</h3><p>Proteger nuestros recursos naturales y promover la salud.</p>
-                    <ul><li>Reforestación con especies nativas</li><li>Protección de fuentes de agua</li><li>Siembra de árboles</li><li>Programa "Urcuquí Saludable" para personas</li><li>Huertos familiares y comunitarios</li></ul>
+                <div class="propuesta" data-category="ambiente" data-aos="fade-up" data-aos-delay="100">
+                    <span class="numero">05</span>
+                    <div class="icono"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Vida Sana y Ambiente</h3>
+                    <p>Proteger nuestros recursos naturales y promover la salud.</p>
+                    <ul>
+                        <li>Reforestación con especies nativas</li>
+                        <li>Protección de fuentes de agua</li>
+                        <li>Siembra de árboles</li>
+                        <li>Programa "Urcuquí Saludable" para personas</li>
+                        <li>Huertos familiares y comunitarios</li>
+                    </ul>
                 </div>
-                <div class="proposal-card">
-                    <div class="number">06</div><h3>Educación y Cultura</h3><p>Fortalecer el patrimonio cultural y las oportunidades educativas.</p>
-                    <ul><li>Becas e incentivos educativos</li><li>Eventos culturales durante la administración</li><li>Personas beneficiadas con programas culturales</li><li>Recuperación de espacios patrimoniales</li><li>Talleres permanentes de arte y tradición</li></ul>
+                <div class="propuesta" data-category="cultura" data-aos="fade-up" data-aos-delay="200">
+                    <span class="numero">06</span>
+                    <div class="icono"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Educación y Cultura</h3>
+                    <p>Fortalecer el patrimonio cultural y las oportunidades educativas.</p>
+                    <ul>
+                        <li>Becas e incentivos educativos</li>
+                        <li>Eventos culturales durante la administración</li>
+                        <li>Personas beneficiadas con programas culturales</li>
+                        <li>Recuperación de espacios patrimoniales</li>
+                        <li>Talleres permanentes de arte y tradición</li>
+                    </ul>
                 </div>
             </div>
-            <!-- CORRECCIÓN 2: SE ELIMINARON LAS LÍNEAS DE "Inversión: $X" DE TODAS LAS TARJETAS -->
         </div>
     </section>
 
-    <!-- CORRECCIÓN 3: NUEVA SECCIÓN EQUIPO (CONCEJALES) CON FILTROS -->
-    <section id="equipo">
-        <div class="container">
-            <h2>Nuestro Equipo</h2>
-            <p class="section-subtitle">Concejales que trabajarán por Urcuquí<br>Un equipo comprometido, representando a cada parroquia del cantón.</p>
-            
-            <div class="team-filters">
-                <button class="filter-btn active" onclick="filterTeam('all')">Todos</button>
-                <button class="filter-btn" onclick="filterTeam('urbano')">Concejales Urbanos</button>
-                <button class="filter-btn" onclick="filterTeam('rural')">Concejales Rurales</button>
+    <!-- NUEVA SECCIÓN: EQUIPO (CONCEJALES) CON FILTROS -->
+    <section class="team-section" id="equipo">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Nuestro Equipo</span>
+                <h2>Concejales que trabajarán por Urcuquí</h2>
+                <p>Un equipo comprometido, representando a cada parroquia del cantón.</p>
             </div>
 
+            <!-- Filtros -->
+            <div class="team-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="urbano">Concejales Urbanos</button>
+                <button class="filter-btn" data-filter="rural">Concejales Rurales</button>
+            </div>
+
+            <!-- Grid de concejales -->
             <div class="team-grid">
-                <!-- EJEMPLO 1: URBANO (Copia y pega este bloque 15 veces, cambiando datos) -->
-                <div class="team-card" data-type="urbano">
-                    <img src="assets/perfil-c.jpg" alt="Concejal">
+                <!-- EJEMPLO 1: URBANO (Copia y pega este bloque para cada concejal urbano) -->
+                <div class="team-card" data-type="urbano" data-aos="fade-up">
+                    <img src="assets/logoname.jpg" alt="Concejal Urbano">
                     <h4>Nombre del Concejal</h4>
-                    <div class="role">Concejal Urbano</div>
-                    <div class="parish">Parroquia San Miguel</div>
+                    <p class="team-role">Concejal Urbano</p>
+                    <p class="team-parish">Parroquia San Miguel</p>
                 </div>
 
-                <!-- EJEMPLO 2: RURAL (Copia y pega este bloque 15 veces, cambiando datos) -->
-                <div class="team-card" data-type="rural">
-                    <img src="assets/perfil-c.jpg" alt="Concejal">
+                <!-- EJEMPLO 2: RURAL (Copia y pega este bloque para cada concejal rural) -->
+                <div class="team-card" data-type="rural" data-aos="fade-up" data-aos-delay="50">
+                    <img src="assets/logoname.jpg" alt="Concejal Rural">
                     <h4>Nombre del Concejal</h4>
-                    <div class="role">Concejal Rural</div>
-                    <div class="parish">Parroquia Tumbabiro</div>
+                    <p class="team-role">Concejal Rural</p>
+                    <p class="team-parish">Parroquia Tumbabiro</p>
                 </div>
 
-                <!-- ⚠️ INSTRUCCIÓN PARA TI: 
-                     Copia el bloque <div class="team-card" ...> y pégalo 28 veces más.
-                     Cambia: 
-                     1. data-type="urbano" o data-type="rural"
-                     2. src="assets/perfil-c.jpg" por la foto real si la tienes (ej: assets/concejal-juan.jpg)
-                     3. El nombre en <h4>
-                     4. La parroquia en <div class="parish">
-                -->
+                <!-- ⚠️ INSTRUCCIÓN: Copia los bloques <div class="team-card"...> y pégalos hasta tener los 30 concejales. 
+                     Cambia: data-type="urbano" o "rural", el nombre, la parroquia y la ruta de la foto si tienes una para cada uno. -->
             </div>
         </div>
     </section>
 
     <!-- Galería -->
-    <section id="galeria">
-        <div class="container">
-            <h2>Momentos</h2>
-            <p class="section-subtitle">Galería<br>Recorriendo nuestro cantón, junto a nuestra gente</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="assets/1.jpg" alt="Momento 1"></div>
-                <div class="gallery-item"><img src="assets/2-2.jpg" alt="Momento 2"></div>
-                <div class="gallery-item"><img src="assets/3.jpg" alt="Momento 3"></div>
-                <div class="gallery-item"><img src="assets/4.jpg" alt="Momento 4"></div>
-                <div class="gallery-item"><img src="assets/5.jpg" alt="Momento 5"></div>
-                <div class="gallery-item"><img src="assets/lisbeth-hero.jpg" alt="Momento 6"></div>
+    <section class="galeria" id="galeria">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Momentos</span>
+                <h2>Galería</h2>
+                <p>Recorriendo nuestro cantón, junto a nuestra gente</p>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item" data-aos="zoom-in"><img src="assets/1.jpg" alt="Momento 1"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="100"><img src="assets/2-2.jpg" alt="Momento 2"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="200"><img src="assets/3.jpg" alt="Momento 3"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                <div class="galeria-item" data-aos="zoom-in"><img src="assets/4.jpg" alt="Momento 4"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="100"><img src="assets/5.jpg" alt="Momento 5"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                <div class="galeria-item" data-aos="zoom-in" data-aos-delay="200"><img src="assets/lisbeth-hero.jpg" alt="Momento 6"><div class="galeria-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
             </div>
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
     <!-- Testimonios -->
-    <section id="testimonios">
-        <div class="container">
-            <h2>Voces del Pueblo</h2>
-            <p class="section-subtitle">Testimonios<br>Lo que dice nuestra gente</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card"><p>"Lisbeth conoce nuestras necesidades porque ha trabajado junto a nosotros. Es una mujer de palabra y compromiso."</p><div class="author">María Rodríguez</div><div class="role">Presidenta del Barrio Central</div></div>
-                <div class="testimonial-card"><p>"He visto su trabajo en la comunidad. No promete, hace. Por eso confío en ella para liderar Urcuquí."</p><div class="author">Juan Carlos Pérez</div><div class="role">Productor Agrícola</div></div>
-                <div class="testimonial-card"><p>"Como emprendedora entiende lo difícil que es salir adelante. Necesitamos alguien así en la Alcaldía."</p><div class="author">Ana Lucía Torres</div><div class="role">Comerciante</div></div>
+    <section class="testimonios">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Voces del Pueblo</span>
+                <h2>Testimonios</h2>
+                <p>Lo que dice nuestra gente</p>
+            </div>
+            <div class="testimonios-slider" data-aos="fade-up">
+                <div class="testimonio active">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"Lisbeth conoce nuestras necesidades porque ha trabajado junto a nosotros. Es una mujer de palabra y compromiso."</p>
+                    <div class="testimonio-autor"><strong>María Rodríguez</strong><span>Presidenta del Barrio Central</span></div>
+                </div>
+                <div class="testimonio">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"He visto su trabajo en la comunidad. No promete, hace. Por eso confío en ella para liderar Urcuquí."</p>
+                    <div class="testimonio-autor"><strong>Juan Carlos Pérez</strong><span>Productor Agrícola</span></div>
+                </div>
+                <div class="testimonio">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"Como emprendedora entiende lo difícil que es salir adelante. Necesitamos alguien así en la Alcaldía."</p>
+                    <div class="testimonio-autor"><strong>Ana Lucía Torres</strong><span>Comerciante</span></div>
+                </div>
+                <div class="testimonios-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section style="background: linear-gradient(135deg, #6A1B9A 0%, #4A148C 100%); color: white; text-align: center; padding: 4rem 2rem;">
-        <div class="container">
-            <h2 style="color: #D4AF37; margin-bottom: 1rem;">El cambio comienza contigo</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Súmate a esta causa. Juntos construiremos el Urcuquí que merecemos.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://wa.me/593995247122" class="btn btn-primary">Únete por WhatsApp</a>
-                <a href="#contacto" class="btn btn-secondary">Ser Voluntario</a>
+    <section class="cta-section">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2>El cambio comienza contigo</h2>
+            <p>Súmate a esta causa. Juntos construiremos el Urcuquí que merecemos.</p>
+            <div class="cta-botones">
+                <a href="https://wa.me/593995247122" class="btn btn-primario"><i class="fa-brands fa-whatsapp"></i> Únete por WhatsApp</a>
+                <a href="#contacto" class="btn btn-outline">Ser Voluntario</a>
             </div>
         </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contacto">
-        <div class="container">
-            <h2>Hablemos</h2>
-            <p class="section-subtitle">Contáctame<br>Tu voz importa. Juntos construiremos el Urcuquí que merecemos.</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <div class="contact-item"><div><strong>Teléfono</strong><a href="tel:+593995247122">+593 99 524 7122</a></div></div>
-                    <div class="contact-item"><div><strong>Email</strong><a href="mailto:alcaldiaurcuquiadn.ok@hotmail.com">alcaldiaurcuquiadn.ok@hotmail.com</a></div></div>
-                    <div class="contact-item"><div><strong>Ubicación</strong><span>San Miguel de Urcuquí, Imbabura</span></div></div>
+    <section class="contacto" id="contacto">
+        <div class="contenedor">
+            <div class="encabezado-seccion" data-aos="fade-up">
+                <span class="sobre">Hablemos</span>
+                <h2>Contáctame</h2>
+                <p>Tu voz importa. Juntos construiremos el Urcuquí que merecemos.</p>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info-col" data-aos="fade-right">
+                    <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--morado-800);margin-bottom:10px;">Información de Contacto</h3>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div><strong>Teléfono</strong><a href="tel:+593995247122">+593 99 524 7122</a></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div><strong>Email</strong><a href="mailto:alcaldiaurcuquiadn.ok@hotmail.com">alcaldiaurcuquiadn.ok@hotmail.com</a></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div><strong>Ubicación</strong><span>San Miguel de Urcuquí, Imbabura</span></div>
+                    </div>
+                    <div class="redes">
+                        <a href="#" class="red" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="red" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="red" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/593995247122" class="red" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                
-                <!-- CORRECCIÓN 4: FORMULARIO PREPARADO PARA GOOGLE SHEETS -->
-                <div class="contact-form">
-                    <form id="contactoForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono (opcional)</label>
-                            <input type="tel" id="telefono" name="telefono">
-                        </div>
-                        <div class="form-group">
-                            <label for="interes">Selecciona una opción</label>
-                            <select id="interes" name="interes" required>
-                                <option value="">Selecciona...</option>
-                                <option value="Quiero ser voluntario">Quiero ser voluntario</option>
-                                <option value="Quiero más información">Quiero más información</option>
-                                <option value="Quiero apoyar la campaña">Quiero apoyar la campaña</option>
-                                <option value="Tengo una propuesta">Tengo una propuesta</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Tu mensaje</label>
-                            <textarea id="mensaje" name="mensaje" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
-                </div>
+
+                <form id="contactoForm" class="contacto-form" data-aos="fade-left">
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                        <label for="nombre">Nombre completo</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Correo electrónico</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefono" name="telefono" placeholder=" ">
+                        <label for="telefono">Teléfono (opcional)</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="interes" name="interes" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="Quiero ser voluntario">Quiero ser voluntario</option>
+                            <option value="Quiero más información">Quiero más información</option>
+                            <option value="Quiero apoyar la campaña">Quiero apoyar la campaña</option>
+                            <option value="Tengo una propuesta">Tengo una propuesta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder=" " required></textarea>
+                        <label for="mensaje">Tu mensaje</label>
+                    </div>
+                    <button type="submit" class="btn btn-primario btn-full"><i class="fa-solid fa-paper-plane"></i> Enviar Mensaje</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Lisbeth Estrada</h3>
+        <div class="footer-contenedor">
+            <div class="footer-col">
+                <a href="#inicio" class="logo-footer">Lisbeth <em>Estrada</em></a>
                 <p>Candidata a la Alcaldía de San Miguel de Urcuquí. Por un cantón con progreso, equidad y futuro.</p>
+                <div class="footer-redes">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/593995247122" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Navegación</h3>
-                <a href="#quien-soy">Quién Soy</a>
-                <a href="#trayectoria">Trayectoria</a>
-                <a href="#propuestas">Propuestas</a>
-                <a href="#equipo">Equipo</a>
-                <a href="#galeria">Galería</a>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#quien-soy">Quién Soy</a></li>
+                    <li><a href="#trayectoria">Trayectoria</a></li>
+                    <li><a href="#propuestas">Propuestas</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <p>+593 99 524 7122</p>
-                <p>alcaldiaurcuquiadn.ok@hotmail.com</p>
-                <p>Urcuquí, Imbabura</p>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> +593 99 524 7122</li>
+                    <li><i class="fa-solid fa-envelope"></i> alcaldiaurcuquiadn.ok@hotmail.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Urcuquí, Imbabura</li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Campaña de Lisbeth Estrada Peña — Candidata a la Alcaldía de San Miguel de Urcuquí</p>
-            <p>Movimiento Acción Democrática Nacional (ADN) · Lista 7</p>
+            © 2026 Campaña de Lisbeth Estrada Peña — Candidata a la Alcaldía de San Miguel de Urcuquí<br>
+            <strong>Movimiento Acción Democrática Nacional (ADN) · Lista 7</strong>
         </div>
     </footer>
 
-    <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/593995247122?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n" class="floating-whatsapp" title="Contáctame por WhatsApp">💬</a>
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/593995247122?text=Hola%20Lisbeth,%20quiero%20m%C3%A1s%20informaci%C3%B3n" class="flotante-whatsapp" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="flotante-tooltip">¡Escríbeme!</span>
+    </a>
 
-    <!-- SCRIPTS -->
-    <script>
-        // 1. COUNTDOWN
-        const electionDate = new Date('November 29, 2026 08:00:00').getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = electionDate - now;
-            if (distance < 0) return;
-            document.getElementById('days').textContent = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById('hours').textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    <!-- Botón volver arriba -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
 
-        // 2. FILTRO DE EQUIPO (CONCEJALES)
-        function filterTeam(type) {
-            const cards = document.querySelectorAll('.team-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Actualizar botones activos
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Filtrar tarjetas
-            cards.forEach(card => {
-                if (type === 'all' || card.getAttribute('data-type') === type) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-
-        // 3. FORMULARIO A GOOGLE SHEETS
-        const contactoForm = document.getElementById('contactoForm');
-        const formMessage = document.getElementById('formMessage');
-        
-        // ⚠️ PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT (la que termina en /exec)
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AQUI_TU_ID_DE_SCRIPT/exec';
-
-        contactoForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formMessage.className = 'form-message';
-            formMessage.textContent = '⏳ Enviando mensaje...';
-
-            const formData = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                telefono: document.getElementById('telefono').value,
-                interes: document.getElementById('interes').value,
-                mensaje: document.getElementById('mensaje').value
-            };
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                
-                formMessage.className = 'form-message success';
-                formMessage.textContent = '✅ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
-                contactoForm.reset();
-                setTimeout(() => { formMessage.className = 'form-message'; formMessage.textContent = ''; }, 6000);
-            } catch (error) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = '❌ Hubo un error. Intenta de nuevo o escríbenos por WhatsApp.';
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
