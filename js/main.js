@@ -1,5 +1,5 @@
 /* ============================================================
-   PRELOADER
+PRELOADER
 ============================================================ */
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 });
 
 /* ============================================================
-   AOS - Animaciones al scroll
+AOS - Animaciones al scroll
 ============================================================ */
 if (typeof AOS !== 'undefined') {
     AOS.init({
@@ -22,7 +22,7 @@ if (typeof AOS !== 'undefined') {
 }
 
 /* ============================================================
-   NAVBAR - scroll, menú móvil, link activo
+NAVBAR - scroll, menú móvil, link activo
 ============================================================ */
 const navbar = document.getElementById('navbar');
 const menuToggle = document.getElementById('menuToggle');
@@ -31,11 +31,11 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
-    
+
     // Back to top
     const backToTop = document.getElementById('backToTop');
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 500);
-    
+
     // Scroll progress
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
         const scrollPercent = (window.scrollY / scrollTotal) * 100;
         scrollProgress.style.width = scrollPercent + '%';
     }
-    
+
     // Link activo según sección visible
     let current = '';
     document.querySelectorAll('section[id], header[id]').forEach(section => {
@@ -71,7 +71,7 @@ if (menuToggle && navMenu) {
 }
 
 /* ============================================================
-   BACK TO TOP
+BACK TO TOP
 ============================================================ */
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {
@@ -81,7 +81,7 @@ if (backToTop) {
 }
 
 /* ============================================================
-   PARTÍCULAS HERO
+PARTÍCULAS HERO
 ============================================================ */
 const particlesContainer = document.getElementById('particles');
 if (particlesContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -100,7 +100,7 @@ if (particlesContainer && !window.matchMedia('(prefers-reduced-motion: reduce)')
 }
 
 /* ============================================================
-   CONTADOR DE ESTADÍSTICAS
+CONTADOR DE ESTADÍSTICAS
 ============================================================ */
 const statNumbers = document.querySelectorAll('.stat-numero');
 const animateCounter = (el, target) => {
@@ -117,7 +117,6 @@ const animateCounter = (el, target) => {
     };
     update();
 };
-
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -128,26 +127,22 @@ const statsObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.5 });
-
 statNumbers.forEach(num => statsObserver.observe(num));
 
 /* ============================================================
-   CUENTA REGRESIVA (hasta 2027)
+CUENTA REGRESIVA (hasta 2027)
 ============================================================ */
 const targetDate = new Date('2027-02-01T08:00:00').getTime();
 const updateCountdown = () => {
     const now = new Date().getTime();
     const diff = targetDate - now;
     if (diff < 0) return;
-    
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
     const pad = (n) => String(n).padStart(2, '0');
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = pad(val); };
-    
     set('dias', days);
     set('horas', hours);
     set('minutos', minutes);
@@ -157,17 +152,15 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* ============================================================
-   FILTRO DE PROPUESTAS
+FILTRO DE PROPUESTAS
 ============================================================ */
 const filtros = document.querySelectorAll('.filtro');
 const propuestas = document.querySelectorAll('.propuesta');
-
 filtros.forEach(filtro => {
     filtro.addEventListener('click', () => {
         filtros.forEach(f => f.classList.remove('active'));
         filtro.classList.add('active');
         const category = filtro.getAttribute('data-filter');
-        
         propuestas.forEach(p => {
             const match = category === 'all' || p.getAttribute('data-category') === category;
             p.classList.toggle('hidden', !match);
@@ -181,7 +174,35 @@ filtros.forEach(filtro => {
 });
 
 /* ============================================================
-   GALERÍA - LIGHTBOX
+FILTRO DE EQUIPO (CONCEJALES) — NUEVO
+============================================================ */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const teamCards = document.querySelectorAll('.team-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Quitar active de todos los botones
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        teamCards.forEach(card => {
+            const type = card.getAttribute('data-type');
+            if (filter === 'all' || type === filter) {
+                card.classList.remove('hidden');
+                card.style.animation = 'none';
+                void card.offsetWidth;
+                card.style.animation = 'fadeIn 0.4s ease';
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
+/* ============================================================
+GALERÍA - LIGHTBOX
 ============================================================ */
 const galeriaItems = document.querySelectorAll('.galeria-item');
 const lightbox = document.getElementById('lightbox');
@@ -199,25 +220,25 @@ if (lightbox && lightboxImg) {
             }
         });
     });
-    
+
     const closeLightbox = () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     };
-    
+
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
             closeLightbox();
         }
     });
-    
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
     });
 }
 
 /* ============================================================
-   TESTIMONIOS - SLIDER
+TESTIMONIOS - SLIDER
 ============================================================ */
 const testimonios = document.querySelectorAll('.testimonio');
 const dots = document.querySelectorAll('.dot');
@@ -229,12 +250,10 @@ const showTestimonio = (index) => {
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
     currentTestimonio = index;
 };
-
 const nextTestimonio = () => showTestimonio((currentTestimonio + 1) % testimonios.length);
 
 if (testimonios.length > 0) {
     testimonioInterval = setInterval(nextTestimonio, 6000);
-    
     dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
             clearInterval(testimonioInterval);
@@ -245,52 +264,79 @@ if (testimonios.length > 0) {
 }
 
 /* ============================================================
-   FORMULARIO DE CONTACTO
+FORMULARIO DE CONTACTO → GOOGLE SHEETS
 ============================================================ */
 const contactoForm = document.getElementById('contactoForm');
 const formMessage = document.getElementById('formMessage');
 
+// ⚠️⚠️⚠️ PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT ⚠️⚠️⚠️
+// (la que te da al desplegar el script en Google Sheets)
+const SCRIPT_URL = 'https://script.google.com/macros/s/AQUI_TU_ID/exec';
+
 if (contactoForm) {
-    contactoForm.addEventListener('submit', (e) => {
+    contactoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const nombre = document.getElementById('nombre').value.trim();
         const email = document.getElementById('email').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
         const interes = document.getElementById('interes').value;
         const mensaje = document.getElementById('mensaje').value.trim();
-        
+
         // Validación
         if (!nombre || !email || !interes || !mensaje) {
             formMessage.className = 'form-message error';
             formMessage.textContent = '⚠️ Por favor completa todos los campos obligatorios.';
             return;
         }
-        
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             formMessage.className = 'form-message error';
             formMessage.textContent = '⚠️ Ingresa un correo electrónico válido.';
             return;
         }
-        
-        // Simular envío exitoso (aquí puedes integrar Formspree, Netlify Forms, etc.)
+
+        // Mostrar mensaje de carga
         formMessage.className = 'form-message success';
-        formMessage.textContent = '✓ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
-        
-        // Opcional: redirigir a WhatsApp con los datos
-        const texto = `Hola, soy ${nombre}. Interés: ${interes}. Mensaje: ${mensaje}`;
-        // window.open(`https://wa.me/593999999999?text=${encodeURIComponent(texto)}`, '_blank');
-        
-        contactoForm.reset();
-        setTimeout(() => {
-            formMessage.className = 'form-message';
-            formMessage.textContent = '';
-        }, 6000);
+        formMessage.textContent = '⏳ Enviando tu mensaje...';
+
+        // Datos a enviar
+        const formData = {
+            nombre: nombre,
+            email: email,
+            telefono: telefono,
+            interes: interes,
+            mensaje: mensaje
+        };
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            formMessage.className = 'form-message success';
+            formMessage.textContent = '✅ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
+            contactoForm.reset();
+
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+                formMessage.textContent = '';
+            }, 6000);
+
+        } catch (error) {
+            console.error('Error al enviar:', error);
+            formMessage.className = 'form-message error';
+            formMessage.textContent = '❌ Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+        }
     });
 }
 
 /* ============================================================
-   SCROLL SUAVE CON OFFSET PARA NAVBAR
+SCROLL SUAVE CON OFFSET PARA NAVBAR
 ============================================================ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -307,7 +353,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ============================================================
-   LAZY LOADING DE IMÁGENES
+LAZY LOADING DE IMÁGENES
 ============================================================ */
 if ('IntersectionObserver' in window) {
     const imgObserver = new IntersectionObserver((entries) => {
