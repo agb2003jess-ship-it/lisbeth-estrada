@@ -32,11 +32,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
     if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    // Back to top
     const backToTop = document.getElementById('backToTop');
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 500);
 
-    // Scroll progress
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
         const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -44,7 +42,6 @@ window.addEventListener('scroll', () => {
         scrollProgress.style.width = scrollPercent + '%';
     }
 
-    // Link activo según sección visible
     let current = '';
     document.querySelectorAll('section[id], header[id]').forEach(section => {
         const sectionTop = section.offsetTop - 120;
@@ -56,7 +53,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Menú móvil
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
@@ -130,9 +126,9 @@ const statsObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(num => statsObserver.observe(num));
 
 /* ============================================================
-CUENTA REGRESIVA (hasta 2027)
+CUENTA REGRESIVA (ACTUALIZADA AL 29 DE NOVIEMBRE 2026)
 ============================================================ */
-const targetDate = new Date('2027-02-01T08:00:00').getTime();
+const targetDate = new Date('2026-11-29T08:00:00').getTime();
 const updateCountdown = () => {
     const now = new Date().getTime();
     const diff = targetDate - now;
@@ -143,10 +139,10 @@ const updateCountdown = () => {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
     const pad = (n) => String(n).padStart(2, '0');
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = pad(val); };
-    set('dias', days);
-    set('horas', hours);
-    set('minutos', minutes);
-    set('segundos', seconds);
+    set('days', days);
+    set('hours', hours);
+    set('minutes', minutes);
+    set('seconds', seconds);
 };
 updateCountdown();
 setInterval(updateCountdown, 1000);
@@ -174,14 +170,13 @@ filtros.forEach(filtro => {
 });
 
 /* ============================================================
-FILTRO DE EQUIPO (CONCEJALES) — NUEVO
+FILTRO DE EQUIPO (CONCEJALES)
 ============================================================ */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const teamCards = document.querySelectorAll('.team-card');
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Quitar active de todos los botones
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
@@ -264,51 +259,33 @@ if (testimonios.length > 0) {
 }
 
 /* ============================================================
-FORMULARIO DE CONTACTO → GOOGLE SHEETS
+FORMULARIO DE CONTACTO (LISTO PARA GOOGLE SHEETS)
 ============================================================ */
 const contactoForm = document.getElementById('contactoForm');
 const formMessage = document.getElementById('formMessage');
 
-// ⚠️⚠️⚠️ PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT ⚠️⚠️⚠️
-// (la que te da al desplegar el script en Google Sheets)
-const SCRIPT_URL = 'https://script.google.com/macros/s/AQUI_TU_ID/exec';
+// ⚠️ PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT (la que termina en /exec)
+const SCRIPT_URL = 'https://script.google.com/macros/s/AQUI_TU_ID_DE_SCRIPT/exec';
 
 if (contactoForm) {
     contactoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        formMessage.className = 'form-message';
+        formMessage.textContent = '⏳ Enviando mensaje...';
 
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
-        const interes = document.getElementById('interes').value;
-        const mensaje = document.getElementById('mensaje').value.trim();
+        const formData = {
+            nombre: document.getElementById('nombre').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            telefono: document.getElementById('telefono').value.trim(),
+            interes: document.getElementById('interes').value,
+            mensaje: document.getElementById('mensaje').value.trim()
+        };
 
-        // Validación
-        if (!nombre || !email || !interes || !mensaje) {
+        if (!formData.nombre || !formData.email || !formData.interes || !formData.mensaje) {
             formMessage.className = 'form-message error';
             formMessage.textContent = '⚠️ Por favor completa todos los campos obligatorios.';
             return;
         }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = '⚠️ Ingresa un correo electrónico válido.';
-            return;
-        }
-
-        // Mostrar mensaje de carga
-        formMessage.className = 'form-message success';
-        formMessage.textContent = '⏳ Enviando tu mensaje...';
-
-        // Datos a enviar
-        const formData = {
-            nombre: nombre,
-            email: email,
-            telefono: telefono,
-            interes: interes,
-            mensaje: mensaje
-        };
 
         try {
             await fetch(SCRIPT_URL, {
@@ -317,20 +294,14 @@ if (contactoForm) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
-
+            
             formMessage.className = 'form-message success';
             formMessage.textContent = '✅ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
             contactoForm.reset();
-
-            setTimeout(() => {
-                formMessage.className = 'form-message';
-                formMessage.textContent = '';
-            }, 6000);
-
+            setTimeout(() => { formMessage.className = 'form-message'; formMessage.textContent = ''; }, 6000);
         } catch (error) {
-            console.error('Error al enviar:', error);
             formMessage.className = 'form-message error';
-            formMessage.textContent = '❌ Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+            formMessage.textContent = '❌ Hubo un error. Intenta de nuevo o escríbenos por WhatsApp.';
         }
     });
 }
@@ -351,22 +322,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-/* ============================================================
-LAZY LOADING DE IMÁGENES
-============================================================ */
-if ('IntersectionObserver' in window) {
-    const imgObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                }
-                imgObserver.unobserve(img);
-            }
-        });
-    });
-    document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
-}
