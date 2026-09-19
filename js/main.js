@@ -31,22 +31,23 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
-
+    
     const backToTop = document.getElementById('backToTop');
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 500);
-
+    
     const scrollProgress = document.getElementById('scrollProgress');
     if (scrollProgress) {
         const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrollPercent = (window.scrollY / scrollTotal) * 100;
         scrollProgress.style.width = scrollPercent + '%';
     }
-
+    
     let current = '';
     document.querySelectorAll('section[id], header[id]').forEach(section => {
         const sectionTop = section.offsetTop - 120;
         if (window.scrollY >= sectionTop) current = section.getAttribute('id');
     });
+    
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) link.classList.add('active');
@@ -113,6 +114,7 @@ const animateCounter = (el, target) => {
     };
     update();
 };
+
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -123,27 +125,33 @@ const statsObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.5 });
+
 statNumbers.forEach(num => statsObserver.observe(num));
 
 /* ============================================================
-CUENTA REGRESIVA (ACTUALIZADA AL 29 DE NOVIEMBRE 2026)
+CUENTA REGRESIVA (29 DE NOVIEMBRE 2026)
 ============================================================ */
 const targetDate = new Date('2026-11-29T08:00:00').getTime();
 const updateCountdown = () => {
     const now = new Date().getTime();
     const diff = targetDate - now;
+    
     if (diff < 0) return;
+    
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
     const pad = (n) => String(n).padStart(2, '0');
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = pad(val); };
+    
     set('days', days);
     set('hours', hours);
     set('minutes', minutes);
     set('seconds', seconds);
 };
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
@@ -152,10 +160,12 @@ FILTRO DE PROPUESTAS
 ============================================================ */
 const filtros = document.querySelectorAll('.filtro');
 const propuestas = document.querySelectorAll('.propuesta');
+
 filtros.forEach(filtro => {
     filtro.addEventListener('click', () => {
         filtros.forEach(f => f.classList.remove('active'));
         filtro.classList.add('active');
+        
         const category = filtro.getAttribute('data-filter');
         propuestas.forEach(p => {
             const match = category === 'all' || p.getAttribute('data-category') === category;
@@ -179,9 +189,8 @@ filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
+        
         const filter = btn.getAttribute('data-filter');
-
         teamCards.forEach(card => {
             const type = card.getAttribute('data-type');
             if (filter === 'all' || type === filter) {
@@ -245,6 +254,7 @@ const showTestimonio = (index) => {
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
     currentTestimonio = index;
 };
+
 const nextTestimonio = () => showTestimonio((currentTestimonio + 1) % testimonios.length);
 
 if (testimonios.length > 0) {
@@ -259,12 +269,10 @@ if (testimonios.length > 0) {
 }
 
 /* ============================================================
-FORMULARIO DE CONTACTO (LISTO PARA GOOGLE SHEETS)
+FORMULARIO DE CONTACTO
 ============================================================ */
 const contactoForm = document.getElementById('contactoForm');
 const formMessage = document.getElementById('formMessage');
-
-// ⚠️ PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT (la que termina en /exec)
 const SCRIPT_URL = 'https://script.google.com/macros/s/AQUI_TU_ID_DE_SCRIPT/exec';
 
 if (contactoForm) {
@@ -272,7 +280,7 @@ if (contactoForm) {
         e.preventDefault();
         formMessage.className = 'form-message';
         formMessage.textContent = '⏳ Enviando mensaje...';
-
+        
         const formData = {
             nombre: document.getElementById('nombre').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -280,13 +288,13 @@ if (contactoForm) {
             interes: document.getElementById('interes').value,
             mensaje: document.getElementById('mensaje').value.trim()
         };
-
+        
         if (!formData.nombre || !formData.email || !formData.interes || !formData.mensaje) {
             formMessage.className = 'form-message error';
             formMessage.textContent = '⚠️ Por favor completa todos los campos obligatorios.';
             return;
         }
-
+        
         try {
             await fetch(SCRIPT_URL, {
                 method: 'POST',
@@ -294,7 +302,6 @@ if (contactoForm) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
-            
             formMessage.className = 'form-message success';
             formMessage.textContent = '✅ ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.';
             contactoForm.reset();
@@ -313,6 +320,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#' || targetId.length < 2) return;
+        
         const target = document.querySelector(targetId);
         if (target) {
             e.preventDefault();
