@@ -107,7 +107,7 @@
         </div>
     </section>
 
-    <!-- Quién Soy -->
+    <!-- Quién Soy (ACTUALIZADO CON IMAGEN) -->
     <section class="quien-soy" id="quien-soy">
         <div class="contenedor">
             <div class="encabezado-seccion" data-aos="fade-up">
@@ -124,7 +124,6 @@
                         <div class="dato">
                             <div class="icono"><i class="fa-solid fa-landmark"></i></div>
                             <strong>Partido</strong>
-                            <!-- CORRECCIÓN: LOGO DEL PARTIDO EN LUGAR DE TEXTO -->
                             <img src="assets/logo-adn.png" alt="Logo ADN Lista 7" style="max-width: 100px; margin-top: 8px;">
                         </div>
                         <div class="dato">
@@ -134,10 +133,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="frase-destacada" data-aos="fade-left">
-                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <p>Una mujer que conoce el valor del trabajo, el esfuerzo de la tierra y la fuerza de la familia.</p>
-                    <p class="ultima">Lista 7 · ADN</p>
+                <div class="quien-imagen-wrapper" data-aos="fade-left">
+                    <div class="quien-imagen">
+                        <img src="assets/lisbeth-quien-soy.jpg" alt="Lisbeth Estrada - Candidata">
+                        <div class="quien-imagen-badge">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Compromiso y Trabajo</span>
+                        </div>
+                    </div>
+                    <div class="frase-destacada">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p>Una mujer que conoce el valor del trabajo, el esfuerzo de la tierra y la fuerza de la familia.</p>
+                        <p class="ultima">Lista 7 · ADN</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -196,7 +204,7 @@
         </div>
     </section>
 
-    <!-- Propuestas (SIN LÍNEAS DE INVERSIÓN) -->
+    <!-- Propuestas -->
     <section class="propuestas" id="propuestas">
         <div class="contenedor">
             <div class="encabezado-seccion" data-aos="fade-up">
@@ -296,7 +304,7 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: EQUIPO (CONCEJALES) CON FILTROS -->
+    <!-- Equipo (Concejales) con Filtros -->
     <section class="team-section" id="equipo">
         <div class="contenedor">
             <div class="encabezado-seccion" data-aos="fade-up">
@@ -305,33 +313,25 @@
                 <p>Un equipo comprometido, representando a cada parroquia del cantón.</p>
             </div>
 
-            <!-- Filtros -->
             <div class="team-filters" data-aos="fade-up">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="urbano">Concejales Urbanos</button>
                 <button class="filter-btn" data-filter="rural">Concejales Rurales</button>
             </div>
 
-            <!-- Grid de concejales -->
             <div class="team-grid">
-                <!-- EJEMPLO 1: URBANO (Copia y pega este bloque para cada concejal urbano) -->
                 <div class="team-card" data-type="urbano" data-aos="fade-up">
                     <img src="assets/logoname.jpg" alt="Concejal Urbano">
                     <h4>Nombre del Concejal</h4>
                     <p class="team-role">Concejal Urbano</p>
                     <p class="team-parish">Parroquia San Miguel</p>
                 </div>
-
-                <!-- EJEMPLO 2: RURAL (Copia y pega este bloque para cada concejal rural) -->
                 <div class="team-card" data-type="rural" data-aos="fade-up" data-aos-delay="50">
                     <img src="assets/logoname.jpg" alt="Concejal Rural">
                     <h4>Nombre del Concejal</h4>
                     <p class="team-role">Concejal Rural</p>
                     <p class="team-parish">Parroquia Tumbabiro</p>
                 </div>
-
-                <!-- ⚠️ INSTRUCCIÓN: Copia los bloques <div class="team-card"...> y pégalos hasta tener los 30 concejales. 
-                     Cambia: data-type="urbano" o "rural", el nombre, la parroquia y la ruta de la foto si tienes una para cada uno. -->
             </div>
         </div>
     </section>
